@@ -6,16 +6,18 @@
   <title>SBB</title>
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}">
+  <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+
   <!-- Custom CSS -->
   <th:block layout:fragment="css"></th:block>
 </head>
 <body>
   <!-- Header  -->
-  <!--<div th:replace="~{fragments/header::header}"></div>-->
+  <div th:replace="~{fragments/header::header}"></div>
   <!-- 기본 템플릿 안에 삽입될 내용 Start -->
-  <th:block layout:fragment="content"></th:block>
+  <th:block layout:fragment="content" class="content"></th:block>
   <!-- Footer -->
-  <!--<div th:replace="~{fragments/footer::footer}"></div>-->
+  <div th:replace="~{fragments/footer::footer}"></div>
   <!-- Bootstrap JS -->
   <script type="text/javascript" th:src="@{/js/bootstrap.bundle.min.js}"></script>
   <!-- Custom JS -->
