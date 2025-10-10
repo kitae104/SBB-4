@@ -23,7 +23,7 @@ public class QuestionController {
 
   @GetMapping("/list")
   public String list(Model model,
-                    @RequestParam(value = "page", defaultValue = "0") int page) {
+                    @RequestParam(value = "page", defaultValue = "0") int page) { // 페이지 기능 추가
     Page<Question> paging = questionService.getList(page);
     log.info("paging info = {}", paging);
     model.addAttribute("paging", paging);

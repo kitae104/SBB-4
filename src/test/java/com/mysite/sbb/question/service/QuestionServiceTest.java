@@ -15,10 +15,10 @@ class QuestionServiceTest {
   @Autowired
   private QuestionService questionService;
 
-  @Transactional
+  //@Transactional
   @Test
   void createDumyData() {
-    for (int i = 0; i < 300 ; i++) {
+    for (int i = 1; i < 301 ; i++) {
       QuestionFormDto questionFormDto = QuestionFormDto.builder()
           .subject("테스트 질문 " + i)
           .content("테스트 내용 " + i)
