@@ -50,3 +50,12 @@ spring:
       hibernate:
         format_sql: true    # SQL 포맷팅 여부
         dialect: org.hibernate.dialect.MySQL8Dialect # MySQL 8.x 버전 사용
+
+####################################
+# Security User 설정
+####################################
+  security:
+    user:
+      name: test
+      password: 1111
+      roles: USER
