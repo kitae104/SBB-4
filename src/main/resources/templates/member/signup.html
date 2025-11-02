@@ -7,15 +7,6 @@
   <style>.fieldError { color: #bd2130; }</style>
 </th:block>
 
-<th:block layout:fragment="script">
-  <script th:inline="javascript">
-      $(function(){
-          let errorMessage = [[${errorMessage}]];
-          if(errorMessage != null){ alert(errorMessage); }
-      });
-  </script>
-</th:block>
-
 <div layout:fragment="content" class="container my-3">
   <div class="my-3 border-bottom">
     <div><h4>회원가입</h4></div>
@@ -91,4 +82,13 @@
     <button type="submit" class="btn btn-primary">회원가입</button>
   </form>
 </div>
+<!-- $ 형식을 사용하기 전에는 반드시 jQuery 추가 필요!! -->
+<th:block layout:fragment="script">
+  <script th:inline="javascript">
+      $(function(){
+          let errorMessage = [[${errorMessage}]];
+          if(errorMessage != null){ alert(errorMessage); }
+      });
+  </script>
+</th:block>
 </html>

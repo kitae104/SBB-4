@@ -7,6 +7,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
@@ -41,10 +42,20 @@ public class MemberController {
     if (!memberDto.getPassword1().equals(memberDto.getPassword2())) {
       // 필드명, 오류 코드, 오류 메시지
       bindingResult.rejectValue("password2", "passwordInCorrect", "2개의 패스워드가 일치하지 않습니다.");
-      return "member/signup";
+      return "member/signup"; // 스크립트 처리
     }
 
-    memberService.create(memberDto);
+    try {
+      memberService.create(memberDto);
+    } catch(DataIntegrityViolationException e){
+      log.info("=============================회원가입 실패: 이미 등록된 사용자입니다.");
+      model.addAttribute("errorMessage","이미 등록된 사용자입니다.");
+      return "member/signup";
+    } catch(Exception e){
+      log.info("=============================회원가입 실패: " + e.getMessage());
+      model.addAttribute("errorMessage", e.getMessage());
+      return "member/signup";
+    }
 
     return "redirect:/";
   }
