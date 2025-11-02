@@ -15,6 +15,7 @@ spring:
   devtools:
     livereload:
       enabled: true
+      port: 35729
     restart:
       enabled: true
 

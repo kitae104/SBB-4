@@ -30,6 +30,8 @@ public class MemberSecurityService implements UserDetailsService {
     }
 
     Member member = loginMember.get();
+
+    // 권한 처리 
     List<GrantedAuthority> authorities = new ArrayList<>();
     if("admin".equals(username)){
       authorities.add(new SimpleGrantedAuthority(MemberRole.ADMIN.getValue())); // 관리자 권한 부여

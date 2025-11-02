@@ -62,9 +62,10 @@ public class MemberController {
 
   @GetMapping("/login")
   public String login() {
-
     return "member/login";
   }
+
+  // @PostMapping("/login") 은 스프링이 구현 --> SecurityConfig에 http.formLogin() 수정
 
   @GetMapping(value = "/login/error")
   public String loginError(Model model){
