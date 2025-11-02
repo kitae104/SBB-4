@@ -30,7 +30,7 @@ public class SecurityConfig {
 
     http
         .authorizeHttpRequests((authorize) -> authorize
-            .requestMatchers("/css/**", "/js/**").permitAll()
+            .requestMatchers("/css/**", "/js/**", "/images/**").permitAll()
             .requestMatchers("/").permitAll()
             //.requestMatchers("/question/**").permitAll()
             .requestMatchers("/member/**").permitAll()
