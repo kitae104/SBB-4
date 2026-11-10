@@ -26,6 +26,7 @@ public class SecurityConfig {
         .passwordParameter("password")
         .permitAll());
 
+//    http.formLogin(Customizer.withDefaults());
     http.logout(Customizer.withDefaults());
 
     http
